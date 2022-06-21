@@ -1,6 +1,6 @@
 import React from "react";
-import { Menu } from "antd";
-
+import { Typography, Avatar, Menu } from "antd";
+import { Link } from "react-router-dom";
 import {
   AppstoreOutlined,
   ContainerOutlined,
@@ -10,6 +10,7 @@ import {
   MailOutlined,
   //   MenuUnfoldOutlined,
 } from "@ant-design/icons";
+import icon from "../images/cryptocurrency.png";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -46,16 +47,25 @@ const Navbar = () => {
     console.log("click ", e);
   };
   return (
-    <Menu
-      onClick={onClick}
-      style={{
-        width: 256,
-      }}
-      defaultSelectedKeys={["1"]}
-      defaultOpenKeys={["sub1"]}
-      mode="inline"
-      items={items}
-    />
+    <div className="mav-container">
+      <div className="logo-container">
+        <Avatar src={icon} size="large" />
+        <Typography.Title level={2} className="logo">
+          <Link to="/">Cryptoverse!</Link>
+        </Typography.Title>
+      </div>
+      <Menu
+        theme="dark"
+        onClick={onClick}
+        style={{
+          width: 256,
+        }}
+        defaultSelectedKeys={["1"]}
+        defaultOpenKeys={["sub1"]}
+        mode="inline"
+        items={items}
+      />
+    </div>
   );
 };
 
