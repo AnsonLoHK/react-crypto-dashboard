@@ -12,6 +12,7 @@
   --light-blue: #e6f7ff;
   --border: #d9d9d9;
 }
+
 .nav-container {
   position: fixed;
   left: 0;
@@ -27,8 +28,8 @@
   padding: 20px;
   align-items: center;
   width: 100%;
-  flex-direction: column;
 }
+
 .logo {
   margin: 0 0 0 15px;
 }
@@ -56,4 +57,47 @@
   font-size: 1.2rem !important;
   background-color: var(--bgSecondary) !important;
   border: none !important;
+}
+
+/* 手機模式 */
+@media screen and (max-width: 800px) {
+  .app {
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .navbar {
+    flex: 1;
+  }
+
+  .main {
+    flex: 1;
+    margin-top: 90px;
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+
+  .nav-container {
+    height: 8vh;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: var(--bgSecondary);
+  }
+
+  /* 手機模式顯示icon*/
+  .menu-control-container {
+    display: block !important;
+  }
+
+  .ant-menu {
+    position: absolute;
+    right: 0px;
+  }
+  .home-title {
+    font-size: 1.4rem !important;
+  }
+  .show-more {
+    font-size: 1.3rem !important;
+  }
 }

@@ -1,15 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout, Button, Typography, Avatar, Menu } from "antd";
 import { Link } from "react-router-dom";
-import {
-  AppstoreOutlined,
-  ContainerOutlined,
-  //   MenuFoldOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
-  MailOutlined,
-  //   MenuUnfoldOutlined,
-} from "@ant-design/icons";
 import {
   HomeOutlined,
   MoneyCollectOutlined,
@@ -27,6 +18,34 @@ const Navbar = () => {
     current: "home",
     collapsed: true,
   });
+  // 螢幕寬高初始值
+  const [windowDimenion, detectHW] = useState({
+    winWidth: window.innerWidth,
+    winHeight: window.innerHeight,
+  });
+
+  // 每次渲染時重新裝大小
+  const detectSize = () => {
+    detectHW({
+      winWidth: window.innerWidth,
+      winHeight: window.innerHeight,
+    });
+  };
+  useEffect(() => {
+    window.addEventListener("resize", detectSize);
+    return () => {
+      window.removeEventListener("resize", detectSize);
+    };
+  }, [windowDimenion]);
+
+  //   手機模式時,sidebar menu影藏
+  useEffect(() => {
+    if (windowDimenion.winWidth <= 800) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [windowDimenion]);
 
   const onCollapse = (collapsed) => {
     console.log(collapsed);
