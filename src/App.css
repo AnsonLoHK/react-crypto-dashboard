@@ -1,4 +1,21 @@
 @import "~antd/dist/antd.css";
+:root {
+  --text-primary: #000;
+  --bgPrimary: #fff;
+  --bgSecondary: #f9f9f9;
+  --pink: #0071bd;
+  --light-blue: #e6f7ff;
+  --border: #d9d9d9;
+}
+.nav-container {
+  position: fixed;
+  left: 0;
+  margin: 10px;
+  height: 100vh;
+  margin: 0px;
+  background-color: rgb(0, 21, 41);
+}
+
 .logo-container {
   background-color: #001529;
   display: flex;
@@ -8,4 +25,14 @@
 }
 .logo {
   margin: 0 0 0 15px;
+}
+
+.navbar {
+  flex: 0.2;
+  background-color: rgb(0, 21, 41);
+}
+
+.main {
+  flex: 0.8;
+  width: 100%;
 }

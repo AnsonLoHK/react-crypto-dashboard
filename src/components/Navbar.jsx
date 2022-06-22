@@ -1,5 +1,5 @@
-import React from "react";
-import { Typography, Avatar, Menu } from "antd";
+import React, { useState } from "react";
+import { Layout, Button, Typography, Avatar, Menu } from "antd";
 import { Link } from "react-router-dom";
 import {
   AppstoreOutlined,
@@ -10,61 +10,61 @@ import {
   MailOutlined,
   //   MenuUnfoldOutlined,
 } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  MoneyCollectOutlined,
+  BulbOutlined,
+  FundOutlined,
+  MenuOutlined,
+} from "@ant-design/icons";
 import icon from "../images/cryptocurrency.png";
 
-function getItem(label, key, icon, children, type) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  };
-}
-
-const items = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("Option 3", "3", <ContainerOutlined />),
-  getItem("Navigation One", "sub1", <MailOutlined />, [
-    getItem("Option 5", "5"),
-    getItem("Option 6", "6"),
-    getItem("Option 7", "7"),
-    getItem("Option 8", "8"),
-  ]),
-  getItem("Navigation Two", "sub2", <AppstoreOutlined />, [
-    getItem("Option 9", "9"),
-    getItem("Option 10", "10"),
-    getItem("Submenu", "sub3", null, [
-      getItem("Option 11", "11"),
-      getItem("Option 12", "12"),
-    ]),
-  ]),
-];
+const { Sider } = Layout;
 
 const Navbar = () => {
-  const onClick = (e) => {
-    console.log("click ", e);
+  const [activeMenu, setActiveMenu] = useState(true);
+  const [state, setState] = useState({
+    current: "home",
+    collapsed: true,
+  });
+
+  const onCollapse = (collapsed) => {
+    console.log(collapsed);
+    setState({ collapsed });
   };
+
   return (
-    <div className="mav-container">
+    <div className="nav-container">
       <div className="logo-container">
         <Avatar src={icon} size="large" />
         <Typography.Title level={2} className="logo">
           <Link to="/">Cryptoverse!</Link>
         </Typography.Title>
+        <Button
+          className="menu-control-container"
+          onClick={() => setActiveMenu(!activeMenu)}
+        >
+          <MenuOutlined />
+        </Button>
       </div>
-      <Menu
-        theme="dark"
-        onClick={onClick}
-        style={{
-          width: 256,
-        }}
-        defaultSelectedKeys={["1"]}
-        defaultOpenKeys={["sub1"]}
-        mode="inline"
-        items={items}
-      />
+
+      <Sider collapsible collapsed={state.collapsed} onCollapse={onCollapse}>
+        {/* <div className="logo" /> */}
+        <Menu theme="dark" selectedKeys={state.current}>
+          <Menu.Item key="home" icon={<HomeOutlined />}>
+            <Link to="/">Home</Link>
+          </Menu.Item>
+          <Menu.Item key="cryptocurrencies" icon={<FundOutlined />}>
+            <Link to="/cryptocurrencies">Cryptocurrencies</Link>
+          </Menu.Item>
+          <Menu.Item key="exchanges" icon={<MoneyCollectOutlined />}>
+            <Link to="/exchanges">Exchanges</Link>
+          </Menu.Item>
+          <Menu.Item key="news" icon={<BulbOutlined />}>
+            <Link to="/news">News</Link>
+          </Menu.Item>
+        </Menu>
+      </Sider>
     </div>
   );
 };
