@@ -1,12 +1,9 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+import { HomePage, Exchange, Navbar } from "./components";
 import "./App.css";
 // v5
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import { Layout, Typography, Space, Menu } from "antd";
-
-// const { Header, Footer, Sider, Content } = Layout;
-// const { Title, Paragraph, Text, Link } = Typography;
+import { Switch, Route } from "react-router-dom";
+import { Layout } from "antd";
 
 const App = () => {
   return (
@@ -14,7 +11,29 @@ const App = () => {
       <div className="navbar">
         <Navbar />
       </div>
-      <div className="main"></div>
+      <div className="main">
+        <Layout>
+          <div className="routes">
+            <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route exact path="/exchanges">
+                <Exchange />
+              </Route>
+              {/* <Route exact path="/cryptocurrencies">
+                <Cryptocurrencies />
+              </Route> */}
+              {/* <Route exact path="/crypto/:coinId">
+                <CryptoDetails />
+              </Route> */}
+              {/* <Route exact path="/news">
+                <News />
+              </Route> */}
+            </Switch>
+          </div>
+        </Layout>
+      </div>
       <div className="footer"></div>
     </div>
   );

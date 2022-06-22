@@ -37,7 +37,7 @@ const Navbar = () => {
     <div className="nav-container">
       <div className="logo-container">
         <Avatar src={icon} size="large" />
-        <Typography.Title level={2} className="logo">
+        <Typography.Title level={4} className="logo">
           <Link to="/">Cryptoverse!</Link>
         </Typography.Title>
         <Button
@@ -47,24 +47,24 @@ const Navbar = () => {
           <MenuOutlined />
         </Button>
       </div>
-
-      <Sider collapsible collapsed={state.collapsed} onCollapse={onCollapse}>
-        {/* <div className="logo" /> */}
-        <Menu theme="dark" selectedKeys={state.current}>
-          <Menu.Item key="home" icon={<HomeOutlined />}>
-            <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item key="cryptocurrencies" icon={<FundOutlined />}>
-            <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-          </Menu.Item>
-          <Menu.Item key="exchanges" icon={<MoneyCollectOutlined />}>
-            <Link to="/exchanges">Exchanges</Link>
-          </Menu.Item>
-          <Menu.Item key="news" icon={<BulbOutlined />}>
-            <Link to="/news">News</Link>
-          </Menu.Item>
-        </Menu>
-      </Sider>
+      {activeMenu && (
+        <Sider collapsible collapsed={state.collapsed} onCollapse={onCollapse}>
+          <Menu theme="dark" selectedKeys={state.current}>
+            <Menu.Item key="home" icon={<HomeOutlined />}>
+              <Link to="/">Home</Link>
+            </Menu.Item>
+            <Menu.Item key="cryptocurrencies" icon={<FundOutlined />}>
+              <Link to="/cryptocurrencies">Cryptocurrencies</Link>
+            </Menu.Item>
+            <Menu.Item key="exchanges" icon={<MoneyCollectOutlined />}>
+              <Link to="/exchanges">Exchanges</Link>
+            </Menu.Item>
+            <Menu.Item key="news" icon={<BulbOutlined />}>
+              <Link to="/news">News</Link>
+            </Menu.Item>
+          </Menu>
+        </Sider>
+      )}
     </div>
   );
 };
