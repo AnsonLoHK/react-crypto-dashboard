@@ -1,10 +1,17 @@
 import React from "react";
-import { HomePage, Exchange, Navbar } from "./components";
+import {
+  HomePage,
+  Exchange,
+  Navbar,
+  CryptoDetails,
+  News,
+  Cryptocurrencies,
+} from "./components";
 import "./App.css";
 // v5
-import { Switch, Route } from "react-router-dom";
-import { Layout } from "antd";
-
+import { Switch, Route, useRouteMatch } from "react-router-dom";
+import { Layout, Typography } from "antd";
+const { Title } = Typography;
 const App = () => {
   return (
     <div className="app">
@@ -21,22 +28,31 @@ const App = () => {
               <Route exact path="/exchanges">
                 <Exchange />
               </Route>
-              {/* <Route exact path="/cryptocurrencies">
+              <Route exact path="/cryptocurrencies">
                 <Cryptocurrencies />
-              </Route> */}
-              {/* <Route exact path="/crypto/:coinId">
+              </Route>
+              <Route exact path="/crypto/:coinId">
                 <CryptoDetails />
-              </Route> */}
-              {/* <Route exact path="/news">
+              </Route>
+              <Route exact path="/news">
                 <News />
-              </Route> */}
+              </Route>
             </Switch>
           </div>
         </Layout>
       </div>
-      <div className="footer"></div>
+      <div className="footer">
+        <Title level={5} style={{ color: "white", textAlign: "center" }}>
+          Copyright © 2022 Cryptoverse Inc.
+          <br />
+          All Rights Reserved.
+        </Title>
+        <OldSchoolMenuLink activeOnlyWhenExact={true} to="/" label="Home" />
+      </div>
     </div>
   );
 };
 
 export default App;
+
+function OldSchoolMenuLink({ label, to, activeOnlyWhenExact }) {}
