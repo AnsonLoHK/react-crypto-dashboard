@@ -1,23 +1,9 @@
 // Redux Toolkit Example 0624
-import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import counterReducer from "../features/counter/counterSlice";
 
-const counterSlice = createSlice({
-  name: "13",
-  initialSate: {
-    value: 0,
-  },
+export const store = configureStore({
   reducer: {
-    incremented: (state) => {
-      state.value += 1;
-    },
-    decremented: (state) => {
-      state.value -= 1;
-    },
+    counter: counterReducer,
   },
 });
-
-// 初始化Store
-const store = configureStore({
-  reducer: counterSlice.reducer,
-});
-export { store };
