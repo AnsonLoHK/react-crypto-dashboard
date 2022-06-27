@@ -11,11 +11,11 @@ const cryptoApiheaders = {
 // API Slice Contents
 // initialize an empty api service that we'll inject endpoints into later as needed
 // that we have our URL and headers, let us start creating and fetching data.
-const createRequest = (url) => ({ url, cryptoApiheaders });
+const createRequest = (url) => ({ url, headers: cryptoApiheaders });
 
 export const cryptoApi = createApi({
   reducerPath: "cryptoApi",
-  baseQuery: fetchBaseQuery({ baseUrl: { baseUrl } }),
+  baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getCryptos: builder.query({
       query: () => createRequest("exchanges"),
