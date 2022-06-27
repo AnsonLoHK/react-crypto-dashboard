@@ -1,10 +1,14 @@
-// Redux Toolkit Example 會用到
+// CryptoApiProject 實際引用的store
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
+// Or from '@reduxjs/toolkit/query/react'
+// import { setupListeners } from "@reduxjs/toolkit/query";
+
+import { useGetCryptosQuery } from "../services/cryptoApi";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    // Add the generated reducer as a specific top-level slice
+    [useGetCryptosQuery.reducerPath]: useGetCryptosQuery.reducer,
   },
 });
 

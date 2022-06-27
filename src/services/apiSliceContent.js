@@ -26,10 +26,3 @@ const myApi = createApi({
 
 export const { useGetCryptosQuery } = myApi; //引用在other.js
 // Now we have created a function/hook to access the getCryptos variable result from the API.
-
-// We need to configure our store. So here is how we do it.
-export default store({
-  reducer: {
-    [myApi.reducerPath]: myApi.reducer,
-  },
-});
