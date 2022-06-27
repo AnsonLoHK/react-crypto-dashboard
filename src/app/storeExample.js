@@ -1,4 +1,4 @@
-// Redux Toolkit Example
+// Redux Toolkit Example 0627 **不會用到**
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({

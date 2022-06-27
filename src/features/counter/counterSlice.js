@@ -28,3 +28,9 @@ export const counterSlice = createSlice({
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 export default counterSlice.reducer;
+
+// *****
+// createApi will call the Redux Toolkit createSlice API to generate
+// a slice reducer and corresponding action creators with the appropriate logic
+// for caching fetched data.It also automatically generates
+// a custom Redux middleware that manages subscription counts and cache lifetimes.
