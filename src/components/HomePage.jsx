@@ -11,7 +11,7 @@ const HomePage = () => {
   // useGetCryptosQuery 发出请求的这些函数只能在函数式组件内部使用，也就是说，请求函数永远在组件被渲染之前调用，
   // 想要直接将其作为事件的处理函数是不可能的。解决该问题的方案有三种，一种是使用lazy版本的函数，比如useLazyGetUserByIdQuery，
   // 一种是使用选择性调用特性，还有一种是使用mutation。
-  const { data, isFetching, isLoading } = useGetCryptosQuery({
+  const { data, isFetching } = useGetCryptosQuery({
     pollingInterval: 3000, //在使用时传入轮询间隔即可
     refetchOnMountOrArgChange: true,
     skip: false,
@@ -20,9 +20,7 @@ const HomePage = () => {
   const globalStats = data?.data?.stats;
   const globalStatus = data?.data?.status;
 
-  console.log("data", millify(2500));
-
-  if (isLoading) return <div>Loading...</div>;
+  if (isFetching) return <div>Loading...</div>;
 
   return (
     <>
@@ -61,7 +59,7 @@ const HomePage = () => {
           Top 10 Cryptocurrencies in the world
         </Title>
         <Title level={3} className="show-more">
-          <Link to={{ pathname: "https://www.google.com.tw" }} target="_blank">
+          <Link to={{ pathname: "/cryptocurrencies" }} target="_blank">
             Show more
           </Link>
         </Title>
@@ -84,4 +82,16 @@ to always refetch on mount (when true is provided). Allows
 forcing the query to refetch if enough time (in seconds) 
 has passed since the last query 
 for the same cache (when a number is provided). Defaults to false
+*/
+
+/*
+4.
+  const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
+  cryptosList?.data?.coins)
+  這裡可以把data想像成是一個變數 變數名稱從 data 命名成 cryptosList
+
+  const { data, isFetching } = useGetCryptosQuery(count);
+  data?.data?.coins)
+  這裡可以把data想像成是一個變數 變數名稱是 data 沒有另外命名
+  
 */
