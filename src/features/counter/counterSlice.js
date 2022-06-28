@@ -1,8 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+// import { createSlice } from "@reduxjs/toolkit";
+// 測試
+import {
+  createAsyncThunk,
+  createSlice,
+  createAction,
+  PayloadAction,
+} from "@reduxjs/toolkit";
 
 const initialState = {
   value: 0,
 };
+
+//定义action
+const httpTest = createAction("httpTest");
 
 export const counterSlice = createSlice({
   name: "counter",
