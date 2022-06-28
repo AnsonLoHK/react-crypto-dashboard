@@ -1,4 +1,9 @@
 @import "~antd/dist/antd.css";
+
+* {
+  /* debugging css */
+  outline: solid 0.25rem hsla(210, 100%, 100%, 0.5);
+}
 .app {
   /* display: flex; */
   overflow: hidden;
@@ -108,4 +113,18 @@
   .show-more {
     font-size: 1.3rem !important;
   }
+}
+
+/* 
+ HomePage
+*/
+.home-heading-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.show-more {
+  margin-top: 0px !important;
 }

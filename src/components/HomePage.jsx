@@ -3,6 +3,8 @@ import { Typography, Col, Row, Statistic } from "antd";
 // import the auto-generated React hooks from the API slice into your component file
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import millify from "millify";
+import { Link } from "react-router-dom";
+
 const { Title } = Typography;
 
 const HomePage = () => {
@@ -59,7 +61,9 @@ const HomePage = () => {
           Top 10 Cryptocurrencies in the world
         </Title>
         <Title level={3} className="show-more">
-          show more
+          <Link to={{ pathname: "https://www.google.com.tw" }} target="_blank">
+            Show more
+          </Link>
         </Title>
       </div>
     </>
