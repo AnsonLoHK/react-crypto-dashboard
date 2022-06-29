@@ -4,6 +4,9 @@ import { Typography, Col, Row, Statistic } from "antd";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import millify from "millify";
 import { Link } from "react-router-dom";
+import Cryptocurrencies from "./Cryptocurrencies";
+import News from "./News";
+import Test from "./test/Test";
 
 const { Title } = Typography;
 
@@ -64,6 +67,19 @@ const HomePage = () => {
           </Link>
         </Title>
       </div>
+      <Cryptocurrencies simplified />
+      <div className="home-heading-container">
+        <Title level={2} className="home-title">
+          Latest crypto news
+        </Title>
+        <Title level={3} className="show-more">
+          <Link to={{ pathname: "/news" }} target="_blank">
+            Show more
+          </Link>
+        </Title>
+      </div>
+      <News simplified />
+      <Test />
     </>
   );
 };
