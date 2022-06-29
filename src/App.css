@@ -2,7 +2,7 @@
 
 * {
   /* debugging css */
-  outline: solid 0.25rem hsla(210, 100%, 100%, 0.5);
+  /* outline: solid 0.25rem hsla(210, 100%, 100%, 0.5); */
 }
 .app {
   /* display: flex; */
@@ -127,4 +127,15 @@
 
 .show-more {
   margin-top: 0px !important;
+}
+
+/* 
+  Cryptocurrencies
+*/
+
+.crypto-card .crypto-image {
+  width: 35px;
+}
+.crypto-card .option1 {
+  background-color: aqua !important;
 }
