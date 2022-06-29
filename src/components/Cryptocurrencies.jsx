@@ -48,12 +48,28 @@ const Cryptocurrencies = ({ myVar }) => {
                     <p
                       style={
                         `${crypto.color}` === "#000000" //黑
-                          ? { backgroundColor: "yellow" }
+                          ? {
+                              backgroundColor: "yellow",
+                              color: "black",
+                              fontSize: "20px",
+                            }
                           : `${crypto.color}` === "#1b1f2a" //黑
-                          ? { backgroundColor: "green" }
+                          ? {
+                              backgroundColor: "green",
+                              color: "white",
+                              fontSize: "20px",
+                            }
                           : `${crypto.color}` === "#3C3C3D" //黑
-                          ? { backgroundColor: "green" }
-                          : { backgroundColor: `${crypto.color}` }
+                          ? {
+                              backgroundColor: "green",
+                              color: "white",
+                              fontSize: "20px",
+                            }
+                          : {
+                              backgroundColor: `${crypto.color}`,
+                              color: "white",
+                              fontSize: "20px",
+                            }
                       }
                     >
                       {millify(crypto.marketCap)}
