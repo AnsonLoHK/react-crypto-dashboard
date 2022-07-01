@@ -5,7 +5,9 @@ import { Row, Col, Card, Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 
-const Cryptocurrencies = ({ myVar }) => {
+const Cryptocurrencies = ({ simplified }) => {
+  let result = simplified == 100 ? 100 : 10;
+  console.log(`You ${result} the exam.`);
   const { data: crytpoList, isFetching } = useGetCryptosQuery({
     pollingInterval: 3000, //在使用时传入轮询间隔即可
     refetchOnMountOrArgChange: true,
@@ -16,13 +18,6 @@ const Cryptocurrencies = ({ myVar }) => {
   useEffect(() => {
     setCryptos(crytpoList?.data?.coins);
   }, [crytpoList]);
-
-  const extra = (
-    <Button type="primary">
-      <PlusOutlined />
-      <span>搜索</span>
-    </Button>
-  );
 
   return (
     <>
@@ -37,7 +32,7 @@ const Cryptocurrencies = ({ myVar }) => {
                 {/* 可在对应的组件中输出props查看传入的对象的信息,添加replace将跳转前的上一个页面替换成当前页面,只将当前页面入栈*/}
                 <Link to={`/crypto/${crypto.name}`}>
                   <Card
-                    title={extra}
+                    title={`${crypto.rank}. ${crypto.name}`}
                     extra={
                       <img className="crypto-image" src={crypto.iconUrl} />
                     }
