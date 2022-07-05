@@ -29,7 +29,7 @@
 
 .logo-container {
   background-color: #001529;
-  display: flex;
+  display: none;
   padding: 20px;
   align-items: center;
   width: 100%;
@@ -112,6 +112,15 @@
   }
   .show-more {
     font-size: 1.3rem !important;
+  }
+  .logo-container {
+    display: block;
+  }
+  .ant-layout-sider {
+    background: none;
+  }
+  .ant-layout-sider-trigger {
+    background: none;
   }
 }
 

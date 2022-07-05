@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 
 const Cryptocurrencies = ({ simplified }) => {
   let result = simplified == 100 ? 100 : 10;
-  console.log(`You ${result} the exam.`);
+
   const { data: crytpoList, isFetching } = useGetCryptosQuery({
     pollingInterval: 3000, //在使用时传入轮询间隔即可
     refetchOnMountOrArgChange: true,
