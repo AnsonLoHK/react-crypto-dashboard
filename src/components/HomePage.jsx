@@ -14,14 +14,9 @@ const HomePage = () => {
   // useGetCryptosQuery 发出请求的这些函数只能在函数式组件内部使用，也就是说，请求函数永远在组件被渲染之前调用，
   // 想要直接将其作为事件的处理函数是不可能的。解决该问题的方案有三种，一种是使用lazy版本的函数，比如useLazyGetUserByIdQuery，
   // 一种是使用选择性调用特性，还有一种是使用mutation。
-  const { data, isFetching } = useGetCryptosQuery({
-    pollingInterval: 3000, //在使用时传入轮询间隔即可
-    refetchOnMountOrArgChange: true,
-    skip: false,
-  });
+  const { data, isFetching } = useGetCryptosQuery(10);
 
   const globalStats = data?.data?.stats;
-  const globalStatus = data?.data?.status;
 
   if (isFetching) return <div>Loading...</div>;
 

@@ -42,7 +42,13 @@ const Cryptocurrencies = ({ simplified }) => {
         )}
         <Row gutter={[32, 32]} className="crypto-card-container">
           {cryptos?.map((crypto) => (
-            <Col key={crypto.uuid} className="crypto-card">
+            <Col
+              xs={24}
+              sm={12}
+              lg={6}
+              key={crypto.uuid}
+              className="crypto-card"
+            >
               {/* 可在对应的组件中输出props查看传入的对象的信息,添加replace将跳转前的上一个页面替换成当前页面,只将当前页面入栈*/}
               <Link to={`/crypto/${crypto.name}`}>
                 <Card

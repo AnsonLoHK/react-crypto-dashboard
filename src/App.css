@@ -18,6 +18,10 @@
   --border: #d9d9d9;
 }
 
+.crypto-card-container {
+  margin-right: 120px !important;
+}
+
 .nav-container {
   position: fixed;
   left: 0;

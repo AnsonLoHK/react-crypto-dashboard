@@ -21,8 +21,7 @@ export const cryptoApi = createApi({
   // endpoints中放的是各种请求相关的函数
   endpoints: (builder) => ({
     getCryptos: builder.query({
-      // ex: ()=> ({请求地址的后半部分 url: `/user/${id}`,  请求的方法  method: "get",})
-      query: () => createRequest(`/coins`),
+      query: (count) => createRequest(`/coins?limit=${count}`),
     }),
   }),
 });
