@@ -50,7 +50,10 @@ const HomePage = () => {
           />
         </Col>
         <Col span={12}>
-          <Statistic title="Total 24h Volume" value={globalStatus} />
+          <Statistic
+            title="Total 24h Volume"
+            value={globalStats.total24hVolume}
+          />
         </Col>
 
         <Col span={12}>
