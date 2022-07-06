@@ -40,24 +40,27 @@ const HomePage = () => {
         <Col span={12}>
           <Statistic
             title="Total Exchanges"
-            value={globalStats.totalExchanges}
+            value={millify(globalStats.totalExchanges)}
           />
         </Col>
         <Col span={12}>
           <Statistic
             title="Total Market Cap"
-            value={globalStats.totalMarketCap}
+            value={millify(globalStats.totalMarketCap)}
           />
         </Col>
         <Col span={12}>
           <Statistic
             title="Total 24h Volume"
-            value={globalStats.total24hVolume}
+            value={millify(globalStats.total24hVolume)}
           />
         </Col>
 
         <Col span={12}>
-          <Statistic title="Total Markets" value={globalStats.totalMarkets} />
+          <Statistic
+            title="Total Markets"
+            value={millify(globalStats.totalMarkets)}
+          />
         </Col>
       </Row>
       <div className="home-heading-container">

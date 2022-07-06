@@ -1,7 +1,7 @@
 //  Or from '@reduxjs/toolkit/query' if not using the auto-generated hooks
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-//  實際url: 'https://coinranking1.p.rapidapi.com/exchanges',
+//  實際url: 'https://coinranking1.p.rapidapi.com/coins',
 const baseUrl = "https://coinranking1.p.rapidapi.com";
 const cryptoApiheaders = {
   "X-RapidAPI-Key": "8384c02bd3mshea42ec0e4603444p111cbbjsn2af36ac4c962",
@@ -17,7 +17,7 @@ export const cryptoApi = createApi({
   reducerPath: "cryptoApi", // 告诉redux-toolkit我们想把从这个api获取的数据放到store的什么位置
   // 根据url自动选择http或者https协议
   // 如果是移动端应用，由于模拟器中的网络与本地不一致，即使服务器在本地也不能使用127.0.0.1，必须用局域网地址
-  baseQuery: fetchBaseQuery({ baseUrl }), // 发送请求的目的地址的前半部分
+  baseQuery: fetchBaseQuery({ baseUrl: baseUrl }), // 发送请求的目的地址的前半部分
   // endpoints中放的是各种请求相关的函数
   endpoints: (builder) => ({
     getCryptos: builder.query({
