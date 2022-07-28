@@ -8,8 +8,14 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 使用技術
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1.Antd
+card 可以依據螢幕寬度設定不同數量的 card
+
+2.millify
+設定千分位
+
+3.reduxjs/toolkit - createApi 的功能應用 來 fetch rapid api 裡的 crypto api
+
+4.Link 的使用

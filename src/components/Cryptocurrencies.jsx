@@ -6,7 +6,7 @@ import { Row, Col, Card, Input } from "antd";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 
 const Cryptocurrencies = ({ simplified }) => {
-  let count = simplified === 100 ? 100 : 10;
+  let count = simplified === 100 ? 100 : 50;
   console.log("count", count);
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState();
