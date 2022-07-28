@@ -29,6 +29,3 @@ export const cryptoApi = createApi({
 // 导出可在函数式组件使用的hooks，它是基于定义的endpoints自动生成的
 // 这个的名称是固定的，就是use加上前面定义的名字再加上query或者mutation
 export const { useGetCryptosQuery } = cryptoApi;
-
-// !!!!!
-// 專案有用到
